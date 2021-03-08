@@ -5,8 +5,8 @@ RSpec.describe 'User Registration' do
     visit root_path
     click_on 'Sign up'
     expect(current_path).to eq(new_user_path)
-    expect(page).to have_field('Username')
-    expect(page).to have_field('Password')
-    expect(page).to have_field('Password Confirmation')
+    expect(page).to have_field('user_username')
+    expect(page).to have_field('user_password')
+    expect(page).to have_field('user_password_confirmation')
   end
 end
