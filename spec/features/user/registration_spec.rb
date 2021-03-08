@@ -7,5 +7,6 @@ RSpec.describe 'User Registration' do
     expect(current_path).to eq(new_user_path)
     expect(page).to have_field('Username')
     expect(page).to have_field('Password')
+    expect(page).to have_field('Password Confirmation')
   end
 end
