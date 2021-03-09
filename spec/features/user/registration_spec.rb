@@ -33,9 +33,9 @@ RSpec.describe 'User Registration' do
     expect(user).to be nil
     expect(User.count).to eq(0)
 
-    expect(current_path).to eq(new_user_path)
-    expect(page).to have_content('Gwen')
-    expect(page).to_not have_content('password1')
-    expect(page).to_not have_content('dontguessme')
+    expect(current_path).to eq(users_path)
+    expect(find_field(:user_username).value).to eq('Gwen')
+    expect(find_field(:user_password).value).to be nil
+    expect(find_field(:user_password_confirmation).value).to be nil
   end
 end
