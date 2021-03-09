@@ -2,7 +2,7 @@
 
 <%= form_for @user do |f| %>
   <%= f.label 'Username' %>
-  <%= f.text_field :username %>
+  <%= f.text_field :username, value: @user.username %>
 
   <%= f.label 'Password' %>
   <%= f.password_field :password %>
@@ -10,5 +10,5 @@
   <%= f.label 'Password Confirmation' %>
   <%= f.password_field :password_confirmation %>
 
-  <%= f.submit %>
+  <%= f.submit 'Submit' %>
 <% end %>
