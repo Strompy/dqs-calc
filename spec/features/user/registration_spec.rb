@@ -41,7 +41,7 @@ RSpec.describe 'User Registration' do
 
   end
   it 'I cannot create a user with non-unqiue username' do
-    user = User.create!(username: 'Gwen', password: 'tri')
+    User.create!(username: 'Gwen', password: 'tri')
     expect(User.count).to eq(1)
 
     visit new_user_path
