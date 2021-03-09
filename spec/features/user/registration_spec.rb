@@ -22,4 +22,20 @@ RSpec.describe 'User Registration' do
 
     expect(current_path).to eq(user_path(user.id))
   end
+  it 'I cannot create a user with mismatched passwords' do
+    visit new_user_path
+    fill_in 'user_username', with: 'Gwen'
+    fill_in 'user_password', with: 'password1'
+    fill_in 'user_password_confirmation', with: 'dontguessme'
+    click_on 'Submit'
+
+    user = User.first
+    expect(user).to be nil
+    expect(User.count).to eq(0)
+
+    expect(current_path).to eq(new_user_path)
+    expect(page).to have_content('Gwen')
+    expect(page).to_not have_content('password1')
+    expect(page).to_not have_content('dontguessme')
+  end
 end
