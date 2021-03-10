@@ -10,7 +10,7 @@ RSpec.describe 'User Login' do
 
     fill_in 'user_username', with: user.username
     fill_in 'user_password', with: user.password
-    click_on 'login'
+    click_on 'Log in'
 
     expect(current_path).to eq(user_path(user.id))
     expect(page).to have_content("Welcome, #{user.username}!")
