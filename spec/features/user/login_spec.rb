@@ -5,7 +5,7 @@ RSpec.describe 'User Login' do
     user = User.create!(username: 'Gwen', password: 'supersecret')
 
     visit root_path
-    click_on 'login'
+    click_on 'Login'
     expect(current_path).to eq(new_session_path)
 
     fill_in 'user_username', with: user.username
