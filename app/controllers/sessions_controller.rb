@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user.id)
     else
       flash[:error] = 'Incorrect username or password. Please try again or sign up for an account.'
+      @user = User.new(username: user_params[:username])
       render :new
     end
   end
