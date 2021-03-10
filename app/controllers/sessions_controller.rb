@@ -4,7 +4,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    require "pry"; binding.pry
+    @user = User.find_by(username: user_params[:username])
+    if @user != nil && @user.authenticate(user_params[:password])
+      session[:user_id] = @user.id
+      flash[:success] = "Welcome, #{@user.username}!"
+      redirect_to user_path(@user.id)
+    else
+      flash[:error] = 'Incorrect username or password. Please try again or sign up for an account.'
+      render :new
+    end
   end
 
   private
