@@ -36,4 +36,18 @@ RSpec.describe 'User Login' do
     expect(current_path).to_not eq(user_path(user.id))
     expect(page).to have_content('Incorrect username or password')
   end
+  it 'I am redirected to my dashboard if logged in' do
+    user = User.create!(username: 'Gwen', password: 'supersecret')
+
+    visit new_session_path
+    fill_in 'user_username', with: user.username
+    fill_in 'user_password', with: user.password
+    click_on 'Log in'
+
+    expect(current_path).to eq(user_path(user.id))
+
+    visit root_path
+
+    expect(current_path).to eq(user_path(user.id))
+  end
 end
