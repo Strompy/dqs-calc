@@ -1,5 +1,7 @@
 <h1><%= "#{@user.username}'s dashboard" %></h1>
 
+<h3><%= link_to 'Add Food', new_user_entry_path(@user.id) %></h3>
+
 <section class='today'>
   <!-- for today's stats -->
 </section>
