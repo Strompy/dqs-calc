@@ -6,4 +6,12 @@ class ApplicationController < ActionController::Base
       @user || User.find(session[:user_id])
     end
   end
+
+  private
+
+  def require_current_user
+    unless current_user
+      redirect_to root_path
+    end
+  end
 end
