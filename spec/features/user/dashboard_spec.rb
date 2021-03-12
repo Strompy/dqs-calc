@@ -8,7 +8,7 @@ RSpec.describe 'User Dashboard/Show Page' do
     fill_in 'user_password', with: user.password
     click_on 'Log in'
 
-    expect(current_path).to eq(user_path(user.id))
+    expect(current_path).to eq(dashboard_index_path)
     expect(page).to have_content("#{user.username}'s dashboard")
     expect(page).to have_css('.today')
     expect(page).to have_css('.recommended')
@@ -21,7 +21,7 @@ RSpec.describe 'User Dashboard/Show Page' do
     fill_in 'user_password', with: user.password
     click_on 'Log in'
 
-    expect(current_path).to eq(user_path(user.id))
+    expect(current_path).to eq(dashboard_index_path)
 
     expect(page).to have_link('Add Food')
     click_on 'Add Food'

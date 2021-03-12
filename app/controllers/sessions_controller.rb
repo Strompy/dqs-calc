@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user != nil && user.authenticate(user_params[:password])
       session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.username}!"
-      redirect_to user_path(user.id)
+      redirect_to dashboard_index_path
     else
       flash[:error] = 'Incorrect username or password. Please try again or sign up for an account.'
       @user = User.new(username: user_params[:username])
