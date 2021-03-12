@@ -1,9 +1,4 @@
 class UsersController < ApplicationController
-  def show
-    # require "pry"; binding.pry
-    @user = User.find(params[:id]) # or current user
-  end
-
   def new
     @user = User.new
   end
