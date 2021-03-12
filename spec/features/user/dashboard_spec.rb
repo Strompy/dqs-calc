@@ -26,6 +26,6 @@ RSpec.describe 'User Dashboard/Show Page' do
     expect(page).to have_link('Add Food')
     click_on 'Add Food'
 
-    expect(current_path).to eq(new_user_entry_path)
+    expect(current_path).to eq(new_user_entry_path(user.id))
   end
 end
