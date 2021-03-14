@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     unless session[:user_id].nil?
-      redirect_to user_path(session[:user_id])
+      redirect_to dashboard_index_path
     end
   end
 end

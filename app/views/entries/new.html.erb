@@ -1,0 +1,17 @@
+<h1>Add New Entry</h1>
+
+<%= form_with model: [@user, Entry.new], local: true do |f| %>
+  <%= f.label 'Meal Type' %>
+  <%= f.select :meal_type, ['Breakfast', 'Lunch', 'Dinner', ' Snacks', 'Beverages'] %>
+  <br/><br/>
+
+  <%= f.label 'Food Category' %>
+  <%= f.select :category, ['Fruits', 'Vegetables', 'High Quality Meat/Seafoods', 'Legumes, Plant Protein', 'Nuts, Seeds, Healthy Oils,' 'Whole Grains', 'Dairy', 'High-Quality Processed Foods', 'High-Quality Beverages', 'Refined Grains', 'Sweets', 'Fried Foods', 'Low-Quality Meat/Seafoods', 'Low-Quality Beverages', 'Other Foods'] %>
+  <br/><br/>
+
+  <%= f.label 'Serving Size' %>
+  <%= f.select :serving, [0.5, 1, 1.5, 2,] %>
+  <br/><br/>
+
+  <%=  f.submit 'Submit '%>
+<% end %>

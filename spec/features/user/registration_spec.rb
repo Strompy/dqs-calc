@@ -20,7 +20,7 @@ RSpec.describe 'User Registration' do
     expect(user.username).to eq 'Gwen'
     expect(user.password_digest).to_not be nil
 
-    expect(current_path).to eq(user_path(user.id))
+    expect(current_path).to eq(dashboard_index_path)
   end
   it 'I cannot create a user with mismatched passwords' do
     visit new_user_path
