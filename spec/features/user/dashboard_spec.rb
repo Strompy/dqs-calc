@@ -27,8 +27,10 @@ RSpec.describe 'User Dashboard/Show Page' do
     click_on 'Add Food'
 
     expect(current_path).to eq(new_user_entry_path(user.id))
-    expect(page).to have_field('Meal Type')
-    expect(page).to have_field('Food Category')
-    expect(page).to have_field('Serving Size')
+    expect(page).to have_select(:entry_meal_type)
+    expect(page).to have_select(:entry_category)
+    expect(page).to have_select(:entry_serving)
+
+    # click_on 'Submit'
   end
 end
