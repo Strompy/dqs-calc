@@ -2,7 +2,7 @@
 
 <%= form_with model: [@user, Entry.new], local: true do |f| %>
   <%= f.label 'Meal Type' %>
-  <%= f.select :category, ['Breakfast', 'Lunch', 'Dinner', ' Snacks', 'Beverages'] %>
+  <%= f.select :meal_type, ['Breakfast', 'Lunch', 'Dinner', ' Snacks', 'Beverages'] %>
   <br/><br/>
 
   <%= f.label 'Food Category' %>
@@ -12,6 +12,6 @@
   <%= f.label 'Serving Size' %>
   <%= f.select :serving, [0.5, 1, 1.5, 2,] %>
   <br/><br/>
-  
+
   <%=  f.submit 'Submit '%>
 <% end %>
