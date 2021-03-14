@@ -31,6 +31,8 @@ RSpec.describe 'User Dashboard/Show Page' do
     expect(page).to have_select(:entry_category)
     expect(page).to have_select(:entry_serving)
 
-    # click_on 'Submit'
+    click_on 'Submit'
+
+    expect(current_path).to eq(dashboard_index_path)
   end
 end
