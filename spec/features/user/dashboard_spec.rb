@@ -17,12 +17,20 @@ RSpec.describe 'User Dashboard/Show Page' do
   it 'Shows todays entries on the dashboard' do
     user = User.create!(username: 'Gwen', password: 'supersecret')
     user.entries.create!(meal_type: 'Breakfast', category: 'Fruits', serving: 1.5)
-    
+    user.entries.create!(meal_type: 'Breakfast', category: 'Fruits', serving: 1)
+    user.entries.create!(meal_type: 'Lunch', category: 'Vegetables', serving: 1)
+
     visit new_session_path
     fill_in 'user_username', with: user.username
     fill_in 'user_password', with: user.password
     click_on 'Log in'
 
+    # daily log
+    expect(page).to have_content("Breakfast")
+    expect(page).to have_content("Fruits")
+    expect(page).to have_content("1.5")
+    # daily score
+    expect(page).to have_content("Today's Score: 3")
   end
 
 end
