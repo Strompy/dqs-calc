@@ -4,6 +4,16 @@
 
 <section class='today'>
   <!-- for today's stats -->
+  <section class='score'>
+    Today's Score:
+  </section>
+  <section class='log'>
+    <% ['Breakfast', 'Lunch', 'Dinner', ' Snacks', 'Beverages'].each do |meal_type| %>
+      <% @user.today_by_category(meal_type).each do |category, total| %>
+        <%# <%= category: total %> %>
+      <% end %>
+    <% end %>
+  </section>
 </section>
 
 <section class='recommended'>
