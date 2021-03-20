@@ -9,9 +9,12 @@
   </section>
   <section class='log'>
     <% ['Breakfast', 'Lunch', 'Dinner', ' Snacks', 'Beverages'].each do |meal_type| %>
+    <div class="log_meal_type">
+      <%= meal_type %>
       <% @user.today_by_category(meal_type).each do |category, total| %>
-        <%# <%= category: total %> %>
+        <p> <%= category %>: <%= total %></p>
       <% end %>
+    </div>
     <% end %>
   </section>
 </section>
