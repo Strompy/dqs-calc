@@ -22,16 +22,19 @@ class User < ApplicationRecord
       case category
       when 'Fruits', 'Vegetables'
         # helper method?
+        # score += fruit_veg_calc(quantity)
       when 'Lean Meats & Fish', 'Nuts & Seeds', 'Whole Grains'
         # helper method?
+        # score += meat_seeds_grains_calc(quantity)
       when 'Dairy'
         # helper method?
-      when 'Refined Grains'
+        # score += dairy_calc(quantity)
+      when 'Refined Grains', 'Fatty Proteins'
         # helper method?
+        # score += refined_grains_fatty_calc(quantity)
       when 'Sweets', 'Fried Foods'
         # helper method?
-      when 'Fatty Proteins'
-        # helper method?
+        # score += fried_sweets_calc(quantity)
       # add else?
       end
     end
