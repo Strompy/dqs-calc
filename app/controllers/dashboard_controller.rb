@@ -3,5 +3,6 @@ class DashboardController < ApplicationController
 
   def index
     @user = current_user
+    @dqs = DqsFacade.current_dqs(@user)
   end
 end
