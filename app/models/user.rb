@@ -12,32 +12,31 @@ class User < ApplicationRecord
       .sum("serving")
   end
 
-  def dqs
-    score = 0
-    require "pry"; binding.pry
+  def sum_today_by_category
     # grab todays entries grouped by category
-    groups = entries.where(created_at: Date.today.all_day)
+    require "pry"; binding.pry
+    entries.where(created_at: Date.today.all_day).group("category").sum("serving")
     # iterate through groups to calculate based on category
-    groups.each do |category, quantity|
-      case category
-      when 'Fruits', 'Vegetables'
-        # helper method?
-        # score += fruit_veg_calc(quantity)
-      when 'Lean Meats & Fish', 'Nuts & Seeds', 'Whole Grains'
-        # helper method?
-        # score += meat_seeds_grains_calc(quantity)
-      when 'Dairy'
-        # helper method?
-        # score += dairy_calc(quantity)
-      when 'Refined Grains', 'Fatty Proteins'
-        # helper method?
-        # score += refined_grains_fatty_calc(quantity)
-      when 'Sweets', 'Fried Foods'
-        # helper method?
-        # score += fried_sweets_calc(quantity)
-      # add else?
-      end
-    end
+    # groups.each do |category, quantity|
+    #   case category
+    #   when 'Fruits', 'Vegetables'
+    #     # helper method?
+    #     # score += fruit_veg_calc(quantity)
+    #   when 'Lean Meats & Fish', 'Nuts & Seeds', 'Whole Grains'
+    #     # helper method?
+    #     # score += meat_seeds_grains_calc(quantity)
+    #   when 'Dairy'
+    #     # helper method?
+    #     # score += dairy_calc(quantity)
+    #   when 'Refined Grains', 'Fatty Proteins'
+    #     # helper method?
+    #     # score += refined_grains_fatty_calc(quantity)
+    #   when 'Sweets', 'Fried Foods'
+    #     # helper method?
+    #     # score += fried_sweets_calc(quantity)
+    #   # add else?
+    #   end
+    # end
 
   end
 
