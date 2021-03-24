@@ -29,13 +29,15 @@ RSpec.describe User, type: :model do
       expected = {}
       expect(result).to eq(expected)
     end
-    it 'can calculate todays dqs' do
+    it 'can sum_today_by_category' do
       user = User.create!(username: 'Gwen', password: 'supersecret')
       user.entries.create!(meal_type: 'Breakfast', category: 'Fruits', serving: 1.5)
       user.entries.create!(meal_type: 'Breakfast', category: 'Fruits', serving: 1)
       user.entries.create!(meal_type: 'Lunch', category: 'Vegetables', serving: 1)
 
-      expect(user.dqs).to eq(7)
+      expected = { "Fruits" => 2.5, "Vegetables" => 1}
+
+      expect(user.sum_today_by_category).to eq(expected)
     end
   end
 end
