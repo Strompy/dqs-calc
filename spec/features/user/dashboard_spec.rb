@@ -30,7 +30,7 @@ RSpec.describe 'User Dashboard/Show Page' do
     expect(page).to have_content("Fruits")
     expect(page).to have_content("2.5")
     # daily score
-    expect(page).to have_content("Today's Score: 7")
+    expect(page).to have_content("Today's Score: 7.0")
   end
 
 end
