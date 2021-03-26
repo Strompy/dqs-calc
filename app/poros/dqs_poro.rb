@@ -17,13 +17,18 @@ class DqsPoro
   end
 
   def calculate(entries)
-    score = 0
+    score = 0.0
     entries.each do |category, quantity|
-      i = 0
+      index = 0
       half_servings = (quantity*2).to_i
-      half_servings.times do
-        score += tables[category][i]
-        i += 1
+      if half_servings >= tables[category].size
+        score += tables[category].inject(:+)
+        score += (half_servings - tables[category].size) * tables[category][-1]
+      else
+        half_servings.times do
+          score += tables[category][index]
+          index += 1
+        end
       end
     end
     score
