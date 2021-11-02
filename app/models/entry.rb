@@ -5,6 +5,6 @@ class Entry < ApplicationRecord
 
   belongs_to :user
 
-  MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner', ' Snacks', 'Beverages']
+  MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner', ' Snacks'] #could add Beverages (low and high qaulity)
   CATEGORIES = ['Fruits', 'Vegetables', 'Lean Meats & Fish', 'Nuts & Seeds', 'Whole Grains', 'Dairy', 'Refined Grains', 'Sweets', 'Fried Foods', 'Fatty Proteins']
 end
