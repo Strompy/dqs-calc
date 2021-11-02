@@ -6,7 +6,7 @@
   <br/><br/>
 
   <%= f.label 'Food Category' %>
-  <%= f.select :category, ['Fruits', 'Vegetables', 'Lean Meats & Fish', 'Nuts & Seeds', 'Whole Grains', 'Dairy', 'Refined Grains', 'Sweets', 'Fried Foods', 'Fatty Proteins'] %>
+  <%= f.select :category, Entry::CATEGORIES %>
   <br/><br/>
 
   <%= f.label 'Serving Size' %>
