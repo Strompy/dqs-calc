@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_secure_password
 
   def today_by_category(meal_type)
-    entries.where(created_at: Date.today.all_day)
+    entries.where(created_at: Date.current.all_day) #in rails use `.current` for DB queries. DB uses UTC
       .where(meal_type: meal_type)
       .group("category")
       .sum("serving")
@@ -15,7 +15,7 @@ class User < ApplicationRecord
   def sum_today_by_category
     # rework the names for these methods
     # require "pry"; binding.pry
-    entries.where(created_at: Date.today.all_day)
+    entries.where(created_at: Date.current.all_day)
       .group("category")
       .sum("serving")
   end

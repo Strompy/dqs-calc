@@ -32,5 +32,4 @@ RSpec.describe 'User Dashboard/Show Page' do
     # daily score
     expect(page).to have_content("Today's Score: 7.0")
   end
-
 end
