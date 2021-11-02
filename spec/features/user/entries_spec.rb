@@ -5,10 +5,7 @@ RSpec.describe 'Meal Entries' do
     user = User.create!(username: 'Gwen', password: 'supersecret')
     expect(user.entries.size).to eq(0)
 
-    visit new_session_path
-    fill_in 'user_username', with: user.username
-    fill_in 'user_password', with: user.password
-    click_on 'Log in'
+    sign_in_as(user)
 
     expect(current_path).to eq(dashboard_index_path)
 
@@ -36,10 +33,7 @@ RSpec.describe 'Meal Entries' do
     user = User.create!(username: 'Gwen', password: 'supersecret')
     expect(user.entries.size).to eq(0)
 
-    visit new_session_path
-    fill_in 'user_username', with: user.username
-    fill_in 'user_password', with: user.password
-    click_on 'Log in'
+    sign_in_as(user)
 
     expect(current_path).to eq(dashboard_index_path)
 
@@ -67,10 +61,7 @@ RSpec.describe 'Meal Entries' do
     user = User.create!(username: 'Gwen', password: 'supersecret')
     expect(user.entries.size).to eq(0)
 
-    visit new_session_path
-    fill_in 'user_username', with: user.username
-    fill_in 'user_password', with: user.password
-    click_on 'Log in'
+    sign_in_as(user)
 
     expect(current_path).to eq(dashboard_index_path)
 
