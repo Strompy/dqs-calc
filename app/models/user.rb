@@ -14,7 +14,6 @@ class User < ApplicationRecord
 
   def sum_today_by_category
     # rework the names for these methods
-    # require "pry"; binding.pry
     entries.where(created_at: Date.current.all_day)
       .group("category")
       .sum("serving")

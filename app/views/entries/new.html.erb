@@ -2,7 +2,7 @@
 
 <%= form_with model: [@user, Entry.new], local: true do |f| %>
   <%= f.label 'Meal Type' %>
-  <%= f.select :meal_type, ['Breakfast', 'Lunch', 'Dinner', ' Snacks', 'Beverages'] %>
+  <%= f.select :meal_type, Entry::MEAL_TYPES %>
   <br/><br/>
 
   <%= f.label 'Food Category' %>
